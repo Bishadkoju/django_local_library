@@ -27,7 +27,7 @@ SECRET_KEY=os.environ.get('DJANGO_SECRET_KEY','uth3a7r5#6)cg+lbqx(ey2h!^u4d2)&(p
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = True
 DEBUG=os.environ.get('DJANGO_DEBUG','')!='False'
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['bishad.herokuapp.com','127.0.0.1']
 SESSION_COOKIE_SECURE=True
 CSRF_COOKIE_SECURE=True
 
