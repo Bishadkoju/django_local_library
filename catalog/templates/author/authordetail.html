@@ -1,0 +1,34 @@
+{% extends 'base_generic.html' %}
+
+{% block title%}
+    <title>Author Details</title>
+{% endblock%}
+
+{% block content%}
+    <P>{{author}}</P>
+    <p>{{author.date_of_birth}} - {% if author.date_of_death %}{{author.date_of_death}}{%endif%}</p>
+    
+
+    {% if author.book_set.all%}
+        <h1>Books</h1>
+        <ul>
+            {% for book in author.book_set.all%}
+                <div class="card  border-primary" >
+                    <div class="card-body">
+                <p class="card-text"> <a href="{{ book.get_absolute_url }}" >  {{book}}</a> ({{book.bookinstance_set.all.count}})</p>
+                {% for genre in book.genre.all%}
+                    {{genre}}
+                {% endfor %}
+                <br>{{book.isbn}}
+                <br>{{book.summary}}</p>
+            </div>
+            </div>
+                <hr size="50%">
+                
+            {% endfor%}
+        </ul>
+    {% else%}
+        <h1>No books found for giver user </h1>
+    {% endif%}
+
+{% endblock%}
